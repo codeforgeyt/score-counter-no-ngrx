@@ -1,0 +1,34 @@
+<mat-toolbar color="primary">
+    <mat-icon>sports_soccer</mat-icon>
+    Score counter
+</mat-toolbar>
+
+<mat-card>
+    <div class="header-wrapper">
+        <h1>Current score</h1>
+    </div>
+    <div class="score-wrapper">
+        <button mat-mini-fab color="primary" (click)="decrement('home')">
+            <mat-icon>exposure_neg_1</mat-icon>
+        </button>
+        <button mat-mini-fab color="primary" (click)="increment('home')">
+            <mat-icon>exposure_plus_1</mat-icon>
+        </button>
+        <!-- <span class="score">{{ home }}</span> -->
+        <span class="score">{{ home$ | async }}</span>
+        <span class="score-divider">:</span>
+        <!-- <span class="score">{{ away }}</span> -->
+        <span class="score">{{ away$ | async }}</span>
+        <button mat-mini-fab color="primary" (click)="increment('away')">
+            <mat-icon>exposure_plus_1</mat-icon>
+        </button>
+        <button mat-mini-fab color="primary" (click)="decrement('away')">
+            <mat-icon>exposure_neg_1</mat-icon>
+        </button>
+    </div>
+    <div class="actions-wrapper">
+        <button mat-stroked-button color="primary" (click)="reset()">
+            <mat-icon>clear</mat-icon>
+        </button>
+    </div>
+</mat-card>
