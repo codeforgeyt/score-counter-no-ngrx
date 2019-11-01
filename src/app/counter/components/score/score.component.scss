@@ -1,28 +1,39 @@
+mat-toolbar {
+    mat-icon {
+        margin-right: 1rem;
+    }
+}
+
 mat-card{
-   margin: 2rem;
+   margin: 1rem;
    display: flex;
    flex-direction: column;
-    .header-wrapper {
+   .header-wrapper {
+        justify-content: center;
         display: flex;
-        justify-content: center;;
     }
     .score-wrapper {
-        margin-top: 1rem;
         display: flex;
         justify-content: center;
         align-items: center;
         button {
-            margin: 0 1rem;
+            margin: 0 0.4rem;
         }
         .score {
             font-size: 3rem;
         }
         .score-divider {
-            font-size: 3rem;
+            font-size: 4rem;
         }
     }
     .actions-wrapper{
         display: flex;
         justify-content: center;
+    }
+}
+
+.score-card {
+    span {
+        margin: auto;
     }
 }

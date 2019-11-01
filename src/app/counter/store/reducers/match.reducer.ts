@@ -34,7 +34,11 @@ const matchReducer = createReducer(initialState,
         awayScore: state.awayScore - 1,
         homeScore: state.homeScore
     })),
-    on(resetScoreboard, state => ({ ...state, scoreboard: { homeScore: 0, awayScore: 0 } })),
+    on(resetScoreboard, state => ({
+        ...state,
+        homeScore: 0,
+        awayScore: 0
+    })),
 );
 
 export function createMatchReducer(state: MatchState, action: Action) {

@@ -3,7 +3,7 @@
     Score counter
 </mat-toolbar>
 
-<mat-card>
+<mat-card class="mat-elevation-z8">
     <div class="header-wrapper">
         <h1>Current score</h1>
     </div>
@@ -14,11 +14,19 @@
         <button mat-mini-fab color="primary" (click)="increment('home')">
             <mat-icon>exposure_plus_1</mat-icon>
         </button>
-        <!-- <span class="score">{{ home }}</span> -->
-        <span class="score">{{ home$ | async }}</span>
+        <mat-card class="mat-elevation-z2 score-card">
+            <mat-card-header>
+                <mat-card-title>HOME</mat-card-title>
+            </mat-card-header>
+            <span class="score">{{ home$ | async }}</span>
+        </mat-card>
         <span class="score-divider">:</span>
-        <!-- <span class="score">{{ away }}</span> -->
-        <span class="score">{{ away$ | async }}</span>
+        <mat-card class="mat-elevation-z2 score-card">
+            <mat-card-header>
+                <mat-card-title>AWAY</mat-card-title>
+            </mat-card-header>
+            <span class="score">{{ away$ | async }}</span>
+        </mat-card>
         <button mat-mini-fab color="primary" (click)="increment('away')">
             <mat-icon>exposure_plus_1</mat-icon>
         </button>
