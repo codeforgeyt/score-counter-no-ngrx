@@ -19,8 +19,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     MatIconModule,
     CommonModule,
     CounterRoutingModule,
-    StoreModule.forRoot({matchState: createMatchReducer}),
-    StoreDevtoolsModule.instrument(),
+    StoreModule.forRoot({matchState: createMatchReducer})
   ],
   exports: [ScoreComponent]
 })

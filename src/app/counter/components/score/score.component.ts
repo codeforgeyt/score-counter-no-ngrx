@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { decrementForAway, decrementForHome, incrementForAway, incrementForHome, resetScoreboard } from '../../store/actions/match.actions';
+import * as MatchAction from '../../store/actions/match.actions';
 import { MatchState } from '../../store/reducers/match.reducer';
-import { selectAwayScore, selectHomeScore } from '../../store/selectors/match.selectors';
+import * as MatchSelector from '../../store/selectors/match.selectors';
 
 @Component({
   selector: 'cf-score',
@@ -14,7 +14,6 @@ export class ScoreComponent implements OnInit {
 
   home$: Observable<number>;
   away$: Observable<number>;
-  scoreboard$: Observable<MatchState>;
 
   private readonly HOME = 'home';
 
@@ -24,22 +23,23 @@ export class ScoreComponent implements OnInit {
     // this.away$ = store.pipe(select('matchState', 'awayScore'));
 
     // Option 2: Selectors
-    this.home$ = store.pipe(select(selectHomeScore));
-    this.away$ = store.pipe(select(selectAwayScore));
+    this.home$ = store.pipe(select(MatchSelector.selectHomeScore));
+    this.away$ = store.pipe(select(MatchSelector.selectAwayScore));
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   increment(team: string) {
-    (team === this.HOME) ? this.store.dispatch(incrementForHome()) : this.store.dispatch(incrementForAway());
+    (team === this.HOME) ?
+      this.store.dispatch(MatchAction.incrementForHome()) : this.store.dispatch(MatchAction.incrementForAway());
   }
 
   decrement(team: string) {
-    (team === this.HOME) ? this.store.dispatch(decrementForHome()) : this.store.dispatch(decrementForAway());
+    (team === this.HOME) ?
+      this.store.dispatch(MatchAction.decrementForHome()) : this.store.dispatch(MatchAction.decrementForAway());
   }
 
   reset() {
-    this.store.dispatch(resetScoreboard());
+    this.store.dispatch(MatchAction.resetScoreboard());
   }
 }

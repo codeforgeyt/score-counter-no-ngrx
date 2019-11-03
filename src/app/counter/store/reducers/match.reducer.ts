@@ -1,12 +1,10 @@
 import { Action, createReducer, on } from '@ngrx/store';
-import { decrementForAway, decrementForHome, incrementForAway, incrementForHome, resetScoreboard } from '../actions/match.actions';
-
+import * as MatchAction from '../actions/match.actions';
 
 export interface MatchState {
     awayScore: number;
     homeScore: number;
 }
-
 
 export const initialState: MatchState = {
     awayScore: 0,
@@ -14,30 +12,30 @@ export const initialState: MatchState = {
 };
 
 const matchReducer = createReducer(initialState,
-    on(incrementForHome, state => ({
+    on(MatchAction.incrementForHome, state => ({
         ...state,
         awayScore: state.awayScore,
         homeScore: state.homeScore + 1
     })),
-    on(decrementForHome, state => ({
+    on(MatchAction.decrementForHome, state => ({
         ...state,
         awayScore: state.awayScore,
         homeScore: state.homeScore - 1
     })),
-    on(incrementForAway, state => ({
+    on(MatchAction.incrementForAway, state => ({
         ...state,
         awayScore: state.awayScore + 1,
         homeScore: state.homeScore
     })),
-    on(decrementForAway, state => ({
+    on(MatchAction.decrementForAway, state => ({
         ...state,
         awayScore: state.awayScore - 1,
         homeScore: state.homeScore
     })),
-    on(resetScoreboard, state => ({
+    on(MatchAction.resetScoreboard, state => ({
         ...state,
-        homeScore: 0,
-        awayScore: 0
+        homeScore: state.homeScore = 0,
+        awayScore: state.awayScore = 0
     })),
 );
 
