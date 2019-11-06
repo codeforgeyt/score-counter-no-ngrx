@@ -18,14 +18,14 @@
             <mat-card-header>
                 <mat-card-title>HOME</mat-card-title>
             </mat-card-header>
-            <span class="score">{{ home$ | async }}</span>
+            <span class="score">{{ home }}</span>
         </mat-card>
         <span class="score-divider">:</span>
         <mat-card class="mat-elevation-z2 score-card">
             <mat-card-header>
                 <mat-card-title>AWAY</mat-card-title>
             </mat-card-header>
-            <span class="score">{{ away$ | async }}</span>
+            <span class="score">{{ away }}</span>
         </mat-card>
         <button mat-mini-fab color="primary" (click)="increment('away')">
             <mat-icon>exposure_plus_1</mat-icon>
